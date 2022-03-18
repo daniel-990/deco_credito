@@ -24,8 +24,17 @@ canvas {
 .btn-app{
     background-color: #b4ca32;
     color: white;
+    width: 100%;
+}
+.btn-app_{
+    background-color: #b4ca32;
+    color: white;
 }
 .btn-app:hover{
+    background-color: #208c87;
+    color: white;
+}
+.btn-app_:hover{
     background-color: #208c87;
     color: white;
 }

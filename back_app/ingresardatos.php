@@ -41,7 +41,7 @@
     $ruta = "";
     $rutaArchivos = URL.'/archivos';
 
-    echo $rutaArchivos;
+    //echo $rutaArchivos;
 
     //carga de la firma digital
     $imagen = new \Verot\Upload\Upload($_FILES['documento']);
@@ -49,7 +49,7 @@
     if ($imagen->uploaded){
         $imagen->file_new_name_body   = 'firma_digital';
         $imagen->image_resize         = true;
-        $imagen->image_x              = 100;
+        $imagen->image_x              = 400;
         $imagen->image_ratio_y        = true;
         $imagen->process('../archivos');
         if ($imagen->processed) {
@@ -62,7 +62,10 @@
     } 
 
     if(isset($_POST)){
-            //codigo de envio a la base de datos
+        if($nombre == "" && $apellido == "" && $cedula_credito == "" && $direccion == "" && $correo == "" && $numerocontacto == "" && $labora == "seleccione" && $quetrabaja == ""){
+            header("Location: http://localhost:8888/deco_credito/index.php?mensaje=Todos los campos son obligatorios");
+            exit;
+        }else{
             if($conexion){
                 $sql = "INSERT INTO tbl_usuariocredito (
                     nombre, 
@@ -125,8 +128,76 @@
                 }
                 mysqli_close($conexion);
             }
-    }else{
+        }
+        //codigo de envio a la base de datos
+        
+            //echo "nombre: ".$nombre;
+            //header("Location: http://localhost:8888/deco_credito/index.php?mensaje=Todos los campos son ibligatorios");
+            //exit;
 
+            // if($conexion){
+            //     $sql = "INSERT INTO tbl_usuariocredito (
+            //         nombre, 
+            //         apellido, 
+            //         cedula_credito, 
+            //         direccion, 
+            //         correo, 
+            //         numerocontacto, 
+            //         documento, 
+            //         labora, 
+            //         quetrabaja,
+            //         nombre_laboral1,
+            //         apellido_laboral1,
+            //         cedula_laboral1,
+            //         numero_laboral1,
+            //         nombre_laboral2,
+            //         apellido_laboral2,
+            //         cedula_laboral2,
+            //         numero_laboral2,
+            //         nombre_familiar3,
+            //         apellido_familiar3,
+            //         cedula_familiar3,
+            //         numero_familiar3,
+            //         nombre_familiar4,
+            //         apellido_familiar4,
+            //         cedula_familiar4,
+            //         numero_familiar4) VALUES (
+            //             '$nombre',
+            //             '$apellido',
+            //             '$cedula_credito',
+            //             '$direccion',
+            //             '$correo',
+            //             '$numerocontacto',
+            //             '$ruta',
+            //             '$labora',
+            //             '$quetrabaja',
+            //             '$nombre_laboral1',
+            //             '$apellido_laboral1',
+            //             '$cedula_laboral1',
+            //             '$numero_laboral1',
+            //             '$nombre_laboral2',
+            //             '$apellido_laboral2',
+            //             '$cedula_laboral2',
+            //             '$numero_laboral2',
+            //             '$nombre_familiar3',
+            //             '$apellido_familiar3',
+            //             '$cedula_familiar3',
+            //             '$numero_familiar3',
+            //             '$nombre_familiar4',
+            //             '$apellido_familiar4',
+            //             '$cedula_familiar4',
+            //             '$numero_familiar4')";
+
+            //     //se envian los datos a la base de datos
+            //     if(mysqli_query($conexion, $sql)){
+            //         header("Location: http://localhost:8888/deco_credito/index.php?mensaje=Datos enviados&rutaImg=".$ruta);
+            //         exit;
+            //     }else{
+            //         echo "error enviado datos";
+            //     }
+            //     mysqli_close($conexion);
+            // }
     }
+
 
 ?>

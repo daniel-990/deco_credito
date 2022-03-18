@@ -26,7 +26,7 @@ $(document).ready(function(){
                 </div>
                 </div>
             `;
-            console.log(trabaja);
+            $( "#cajatexto" ).prop( "disabled", false );
             siTrabaja.html(html1);
         }else if(trabaja == "no"){
             html2 = `
@@ -50,7 +50,7 @@ $(document).ready(function(){
                 </div>
                 </div>
             `;
-            console.log(trabaja);
+            $( "#cajatexto" ).prop( "disabled", true );
             siTrabaja.html(html2);
         }
     });

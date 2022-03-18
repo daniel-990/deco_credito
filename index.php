@@ -13,14 +13,12 @@
         <?php 
             if(!empty($_GET)){
                 $mensaje = $_GET['mensaje'];
-                $rutaFirma = $_GET['rutaImg'];
-                if($mensaje == "" || $rutaFirma == ""){
+                //$rutaFirma = $_GET['rutaImg'];
+                if($mensaje == ""){
                     echo "";
                 }else{
                     echo '<div class="contenedor-mensajes">';
                         echo '<h4 class="mensaje-alerta badge rounded-pill bg-success">'.$mensaje.' <i class="bi bi-check-all color_alert"></i></h4>';
-                        echo '<br>';
-                        echo '<a href="http://localhost:8888/deco_credito/archivos/'.$rutaFirma.'">ver imagen</a>';
                     echo '</div>';
                     echo '<br>';
                 }
@@ -31,7 +29,7 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" name="nombre" class="form-control" id="nombre">
+                        <input type="text" name="nombre" class="form-control" id="nombre" require>
                     </div>
                     <div class="mb-3">
                         <label for="apellido" class="form-label">Apellido</label>
@@ -53,7 +51,28 @@
                         <label for="numerocontacto" class="form-label">Numero de contacto</label>
                         <input type="number" name="numerocontacto" class="form-control" id="numerocontacto">
                     </div>
-                    <p>Adjunte una copia de su documento de indentidad en formato jpg o pdf</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Adjunte su firma digital</h5>
+                    <!-- firma -->
+                    <div id="signature-pad" class="signature-pad">
+                        <div class="signature-pad--body">
+                        <canvas></canvas>
+                        </div>
+                        <div class="signature-pad--footer">
+                        <div class="signature-pad--actions">
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <button type="button" class="btn btn-app_ button clear" data-action="clear">limpiar <i class="bi bi-trash"></i></button>
+                                <button type="button" class="btn btn-app_ button save" data-action="save-png">Guardar firma <i class="bi bi-images"></i></button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- firma -->
+                    <div class="form-text">
+                        Ingrese el archivo *firma* que genero mediente la aplicacion digital
+                    </div>
                     <div class="input-group mb-3">
                         <input type="file" name="documento" class="form-control" id="adjuntaridentificacion">
                     </div>
@@ -66,9 +85,11 @@
                         </select>
                     </div>
                     <div class="mb-3 caja-texto"><label for="cajatexto" class="form-label">En que trabaja</label> 
-                    <textarea class="form-control" placeholder="Describa brevemente en que trabaja" name="quetrabaja" id="cajatexto"></textarea></div>
-                </div>
-                <div class="col-md-6">
+                        <textarea class="form-control" placeholder="Describa brevemente en que trabaja" name="quetrabaja" id="cajatexto" disabled></textarea>
+                        <div class="form-text">
+                            Expliquenos en un texto breve en que consiste su actual trabajo
+                        </div>
+                    </div>
                     <div id="siTrabaja">
                         <!-- render -->
                     </div>
