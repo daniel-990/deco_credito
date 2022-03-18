@@ -15,8 +15,8 @@ canvas {
     position: relative;
     left: 0;
     top: 0;
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: auto;
     border-radius: 4px;
     border: 1px solid black;
 }
