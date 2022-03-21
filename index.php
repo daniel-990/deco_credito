@@ -1,11 +1,14 @@
-<?php include "./partials/header.php"; ?>
+<?php 
+    include "./partials/header.php";
+?>
+
 <section class="banner">
     <img src="./img/banner.jpg" class="img-fluid banner" alt="">
 </section>
 <section class="container">
     <div class="contenedor-registro">
         <h2>
-            Solicita tu crédito 
+            Solicita tu crédito
             <br>
             <span class="badge bg-secondary alerta-titulo">Sistema de credito</span>
             <hr>
@@ -24,7 +27,7 @@
                 }
             }
         ?>
-        <form action="./back_app/ingresardatos.php" method="POST" enctype="multipart/form-data">
+        <form name="f1" id="f1" action="./back_app/ingresardatos.php" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3">
@@ -75,6 +78,8 @@
                     </div>
                     <div class="input-group mb-3">
                         <input type="file" name="documento" class="form-control" id="adjuntaridentificacion">
+                        <br>
+                        <input class="form-control" type="text" name="f1t1" id="f1t1" disabled>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Trabaja Actualmente?</label>
@@ -87,7 +92,7 @@
                     <div class="mb-3 caja-texto"><label for="cajatexto" class="form-label">En que trabaja</label> 
                         <textarea class="form-control" placeholder="Describa brevemente en que trabaja" name="quetrabaja" id="cajatexto" disabled></textarea>
                         <div class="form-text">
-                            Expliquenos en un texto breve en que consiste su actual trabajo
+                            Expliquenos en un texto breve en que consiste su trabajo actual
                         </div>
                     </div>
                     <div id="siTrabaja">

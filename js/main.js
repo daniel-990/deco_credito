@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
+    //variables
     const siTrabaja = $("#siTrabaja");
+    const buscar = $("#formulario-busqueda");
 
     $(document).on('change', '#trabaja', function() {
         const trabaja = $("#trabaja").val();
@@ -52,6 +54,29 @@ $(document).ready(function(){
             `;
             $( "#cajatexto" ).prop( "disabled", true );
             siTrabaja.html(html2);
+            $('.myModal').modal();
         }
+    });
+
+    buscar.submit(function(e){
+        e.preventDefault();
+    
+        var formularioBusqueda = $(this);
+        var url = formularioBusqueda.attr('action');
+    
+        $.ajax({
+            type: "POST",
+            url: "./back_app/buscar.php",
+            data: formularioBusqueda.serialize(),
+            success: function(data){
+                $("#resultados").html("");
+                $("#resultados").html(data);
+                console.log(data);
+                console.log(url);
+            },
+            error: function(error){
+              console.log(error);
+            }
+        });
     });
 })

@@ -36,22 +36,20 @@ window.onresize = resizeCanvas;
 resizeCanvas();
 
 function download(dataURL, filename) {
-  if (navigator.userAgent.indexOf("Safari") > -1 && navigator.userAgent.indexOf("Chrome") === -1) {
-    window.open(dataURL);
-  } else {
-    var blob = dataURLToBlob(dataURL);
-    var url = window.URL.createObjectURL(blob);
 
-    var a = document.createElement("a");
-    a.style = "display: none";
-    a.href = url;
-    a.download = filename;
+  var blob = dataURLToBlob(dataURL);
+  var url = window.URL.createObjectURL(blob);
 
-    document.body.appendChild(a);
-    a.click();
+  var a = document.createElement("a");
+  a.style = "display: none";
+  a.href = url;
+  a.download = filename;
 
-    window.URL.revokeObjectURL(url);
-  }
+  document.body.appendChild(a);
+  a.click();
+
+  window.URL.revokeObjectURL(url);
+
 }
 
 // One could simply use Canvas#toBlob method instead, but it's just to show
@@ -77,9 +75,15 @@ clearButton.addEventListener("click", function (event) {
 
 savePNGButton.addEventListener("click", function (event) {
   if (signaturePad.isEmpty()) {
-    alert("Please provide a signature first.");
+    alert("Por favor genere su firma primero.");
   } else {
     var dataURL = signaturePad.toDataURL();
     download(dataURL, "sufirmadigital.png");
+
+    //asignamos el valor de dataURL al input
+    document.f1.f1t1.value = dataURL;
+
+
+
   }
 });

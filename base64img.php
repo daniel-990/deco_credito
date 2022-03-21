@@ -9,5 +9,4 @@
     $success = file_put_contents($file, $data);
     print $success ? $file : 'Unable to save the file.';
 
-
 ?>

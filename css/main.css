@@ -16,7 +16,7 @@ canvas {
     left: 0;
     top: 0;
     width: 100%;
-    height: auto;
+    height: 250px;
     border-radius: 4px;
     border: 1px solid black;
 }
@@ -40,4 +40,21 @@ canvas {
 }
 .color_alert{
     color: #ffc107;
+}
+.color-verde{
+    background-color: #178985;
+    color: white;
+}
+.color-naranja{
+    background-color: #FF980A;
+    color: white;
+}
+.color-gris{
+    background-color: #454547;
+    color: white;
+}
+
+#vista{
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
