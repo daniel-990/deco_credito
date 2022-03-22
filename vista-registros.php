@@ -11,15 +11,15 @@ require "./constantes/conectar.php";
     <div id="vista" class="container table-responsive">
 
         <!-- buscador -->
-        <form id="formulario-busqueda" action="./back_app/buscar.php" method="POST">
+        <form id="formulario-busqueda" action="<?php echo URLR; ?>/back_app/buscar.php" method="POST">
             <h2 class="text-left">Usuarios Registrados</h2>
             <div class="row">
                 <div class="col">
-                    <input type="text" name="busqueda" class="form-control" placeholder="Buscar usuario por cedula, correo, telefono/celular, apellido">
+                    <input id="buscador" type="text" name="busqueda" class="form-control" placeholder="Buscar usuario por cedula, correo, telefono/celular, apellido">
                     <br>
                     <label for="select">Filtrar si esta laborando o no</label>
                     <hr>
-                    <select class="form-control" id="select" name="opcionLaboral">
+                    <select class="form-control" id="select-buscar" name="opcionLaboral">
                         <option selected>Seleccionar</option>
                         <option value="si">si</option>
                         <option value="no">no</option>

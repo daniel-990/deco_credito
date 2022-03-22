@@ -54,81 +54,89 @@
         $imagen->process('../archivos');
         if ($imagen->processed) {
             $ruta = $imagen->file_dst_name;
-            echo $ruta;
             $imagen->clean();
         } else {
             echo 'error de carga de la imagen de perfil: ' . $imagen->error;
         }
     } 
-
-    if(isset($_POST)){
-        if($nombre == "" && $apellido == "" && $cedula_credito == "" && $direccion == "" && $correo == "" && $numerocontacto == "" && $labora == "seleccione" && $quetrabaja == ""){
-            header("Location: http://localhost:8888/deco_credito/index.php?mensaje=Todos los campos son obligatorios");
-            exit;
-        }else{
-            if($conexion){
-                $sql = "INSERT INTO tbl_usuariocredito (
-                    nombre, 
-                    apellido, 
-                    cedula_credito, 
-                    direccion, 
-                    correo, 
-                    numerocontacto, 
-                    documento, 
-                    labora, 
-                    quetrabaja,
-                    nombre_laboral1,
-                    apellido_laboral1,
-                    cedula_laboral1,
-                    numero_laboral1,
-                    nombre_laboral2,
-                    apellido_laboral2,
-                    cedula_laboral2,
-                    numero_laboral2,
-                    nombre_familiar3,
-                    apellido_familiar3,
-                    cedula_familiar3,
-                    numero_familiar3,
-                    nombre_familiar4,
-                    apellido_familiar4,
-                    cedula_familiar4,
-                    numero_familiar4) VALUES (
-                        '$nombre',
-                        '$apellido',
-                        '$cedula_credito',
-                        '$direccion',
-                        '$correo',
-                        '$numerocontacto',
-                        '$ruta',
-                        '$labora',
-                        '$quetrabaja',
-                        '$nombre_laboral1',
-                        '$apellido_laboral1',
-                        '$cedula_laboral1',
-                        '$numero_laboral1',
-                        '$nombre_laboral2',
-                        '$apellido_laboral2',
-                        '$cedula_laboral2',
-                        '$numero_laboral2',
-                        '$nombre_familiar3',
-                        '$apellido_familiar3',
-                        '$cedula_familiar3',
-                        '$numero_familiar3',
-                        '$nombre_familiar4',
-                        '$apellido_familiar4',
-                        '$cedula_familiar4',
-                        '$numero_familiar4')";
-
-                //se envian los datos a la base de datos
-                if(mysqli_query($conexion, $sql)){
-                    header("Location: http://localhost:8888/deco_credito/index.php?mensaje=Datos enviados&rutaImg=".$ruta);
-                    exit;
-                }else{
-                    echo "error enviado datos";
+    //revisar si el usuario ya esta registrado
+    $sqlRevisar = "SELECT * FROM tbl_usuariocredito WHERE cedula_credito='$cedula_credito' OR correo='$correo'";
+    $result = mysqli_query($conexion, $sqlRevisar);
+    if(mysqli_num_rows($result)>0){
+        header("Location: ".URLR."/index.php?mensaje=El usuario con CC: ".$cedula_credito." ya esta registrado");
+        exit;
+    }else{
+        // registro de datos
+        if(isset($_POST)){
+            if($nombre == "" && $apellido == "" && $cedula_credito == "" && $direccion == "" && $correo == "" && $numerocontacto == "" && $labora == "seleccione" && $quetrabaja == ""){
+                header("Location: ".URLR."/index.php?mensaje=Todos los campos son obligatorios");
+                exit;
+            }else{
+                if($conexion){
+                    $sql = "INSERT INTO tbl_usuariocredito (
+                        nombre, 
+                        apellido, 
+                        cedula_credito, 
+                        direccion, 
+                        correo, 
+                        numerocontacto, 
+                        documento, 
+                        labora, 
+                        quetrabaja,
+                        nombre_laboral1,
+                        apellido_laboral1,
+                        cedula_laboral1,
+                        numero_laboral1,
+                        nombre_laboral2,
+                        apellido_laboral2,
+                        cedula_laboral2,
+                        numero_laboral2,
+                        nombre_familiar3,
+                        apellido_familiar3,
+                        cedula_familiar3,
+                        numero_familiar3,
+                        nombre_familiar4,
+                        apellido_familiar4,
+                        cedula_familiar4,
+                        numero_familiar4) VALUES (
+                            '$nombre',
+                            '$apellido',
+                            '$cedula_credito',
+                            '$direccion',
+                            '$correo',
+                            '$numerocontacto',
+                            '$ruta',
+                            '$labora',
+                            '$quetrabaja',
+                            '$nombre_laboral1',
+                            '$apellido_laboral1',
+                            '$cedula_laboral1',
+                            '$numero_laboral1',
+                            '$nombre_laboral2',
+                            '$apellido_laboral2',
+                            '$cedula_laboral2',
+                            '$numero_laboral2',
+                            '$nombre_familiar3',
+                            '$apellido_familiar3',
+                            '$cedula_familiar3',
+                            '$numero_familiar3',
+                            '$nombre_familiar4',
+                            '$apellido_familiar4',
+                            '$cedula_familiar4',
+                            '$numero_familiar4')";
+    
+                    //se envian los datos a la base de datos
+                    if(mysqli_query($conexion, $sql)){
+                        header("Location: ".URLR."/index.php?mensaje=Datos enviados&rutaImg=".$ruta);
+                        exit;
+                    }else{
+                        echo "error enviado datos";
+                    }
+                    mysqli_close($conexion);
                 }
-                mysqli_close($conexion);
             }
         }
+        // registro de datos
     }
 
 

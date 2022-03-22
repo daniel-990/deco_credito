@@ -1,13 +1,15 @@
-$(document).ready(function(){
+$(document).ready(function () {
+  //variables
+  const siTrabaja = $("#siTrabaja");
+  //buscador
+  const selectBuscar = $("#select-buscar");
+  const buscador = $("#buscador");
+  const buscar = $("#formulario-busqueda");
 
-    //variables
-    const siTrabaja = $("#siTrabaja");
-    const buscar = $("#formulario-busqueda");
-
-    $(document).on('change', '#trabaja', function() {
-        const trabaja = $("#trabaja").val();
-        if(trabaja == "si"){
-            html1 = `
+  $(document).on("change", "#trabaja", function () {
+    const trabaja = $("#trabaja").val();
+    if (trabaja == "si") {
+      html1 = `
                 <div class="row">
                 <label>Ingrese dos referencias laborales</label>
                 <div class="col-md-6">
@@ -28,10 +30,10 @@ $(document).ready(function(){
                 </div>
                 </div>
             `;
-            $( "#cajatexto" ).prop( "disabled", false );
-            siTrabaja.html(html1);
-        }else if(trabaja == "no"){
-            html2 = `
+      $("#cajatexto").prop("disabled", false);
+      siTrabaja.html(html1);
+    } else if (trabaja == "no") {
+      html2 = `
                 <div class="row">
                 <label>Ingrese dos referencias familiares</label> 
                 <div class="col-md-6">
@@ -52,31 +54,54 @@ $(document).ready(function(){
                 </div>
                 </div>
             `;
-            $( "#cajatexto" ).prop( "disabled", true );
-            siTrabaja.html(html2);
-            $('.myModal').modal();
-        }
-    });
+      $("#cajatexto").prop("disabled", true);
+      siTrabaja.html(html2);
+      $(".myModal").modal();
+    }
+  });
 
-    buscar.submit(function(e){
-        e.preventDefault();
-    
-        var formularioBusqueda = $(this);
-        var url = formularioBusqueda.attr('action');
-    
-        $.ajax({
-            type: "POST",
-            url: "./back_app/buscar.php",
-            data: formularioBusqueda.serialize(),
-            success: function(data){
-                $("#resultados").html("");
-                $("#resultados").html(data);
-                console.log(data);
-                console.log(url);
-            },
-            error: function(error){
-              console.log(error);
-            }
-        });
+  buscar.submit(function (e) {
+    e.preventDefault();
+
+    var formularioBusqueda = $(this);
+    var url = formularioBusqueda.attr("action");
+
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: formularioBusqueda.serialize(),
+      success: function (data) {
+        
+        $("#resultados").html("");
+        $("#resultados").html(data);
+        selectBuscar.val("Seleccionar");
+        buscador.val("");
+
+            //notificaciones
+            // Comprobamos si el navegador soporta las notificaciones
+            if (!("Notification" in window)){
+                console.log("Este navegador no es compatible con las notificaciones de escritorio");
+            }else if (Notification.permission === "granted"){
+                // Si es correcto, lanzamos una notificación
+                var notification = new Notification("Se realizo la busqueda");
+                
+
+            }else if (Notification.permission !== "denied" || Notification.permission === "default"){ 
+                Notification.requestPermission(function (permission){
+                // Si el usuario nos lo concede, creamos la notificación
+                if (permission === "granted"){
+                    var notification = new Notification("");
+                }
+            });
+        }
+        //notificaciones
+
+
+      },
+      error: function (error) {
+        alert(error);
+      },
     });
-})
+  });
+
+});

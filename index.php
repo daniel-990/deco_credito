@@ -21,7 +21,7 @@
                     echo "";
                 }else{
                     echo '<div class="contenedor-mensajes">';
-                        echo '<h4 class="mensaje-alerta badge rounded-pill bg-success">'.$mensaje.' <i class="bi bi-check-all color_alert"></i></h4>';
+                        echo '<h4 class="mensaje-alerta badge_ rounded-pill_ bg-success">'.$mensaje.' <i class="bi bi-check-all color_alert"></i></h4>';
                     echo '</div>';
                     echo '<br>';
                 }

@@ -116,5 +116,8 @@ if ($result->num_rows > 0) {
         </div>
 <?php
     }
+}else{
+    echo "<br>";
+    echo '<h2>No se encontraron resultados</h2>';
 }
 ?>

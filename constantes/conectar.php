@@ -2,6 +2,11 @@
 
     require 'credenciales.php';
 
+    //remota
+    //define('URLR', 'https://decohouse.com.co/decohouse-tienda/decocredito');
+    //local
+    define('URLR', 'http://localhost:8888/deco_credito');
+
     /** 
      * datos de coneccion base de datos
     **/
