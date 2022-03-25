@@ -2,6 +2,7 @@
 
     require '../constantes/conectar.php';
     require '../vendor/verot/class.upload.php/src/class.upload.php';
+    include('../vendor/autoload.php');
 
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
@@ -59,6 +60,17 @@
             echo 'error de carga de la imagen de perfil: ' . $imagen->error;
         }
     } 
+
+    //bot
+    use \unreal4u\TelegramAPI\HttpClientRequestHandler;
+    use \unreal4u\TelegramAPI\TgLog;
+    use \unreal4u\TelegramAPI\Telegram\Methods\SendMessage;
+    
+    $loop = \React\EventLoop\Factory::create();
+    $handler = new HttpClientRequestHandler($loop);
+    $tgLog = new TgLog(API, $handler);
+
+
     //revisar si el usuario ya esta registrado
     $sqlRevisar = "SELECT * FROM tbl_usuariocredito WHERE cedula_credito='$cedula_credito' OR correo='$correo'";
     $result = mysqli_query($conexion, $sqlRevisar);
@@ -127,6 +139,15 @@
     
                     //se envian los datos a la base de datos
                     if(mysqli_query($conexion, $sql)){
+                        
+                        //se activa el bot
+                            $sendMessage = new SendMessage();
+                            $sendMessage->chat_id = USERID;
+                            $sendMessage->text = "Solicitud a nombre de: \n".$nombre." ".$apellido." \n correo: ".$correo." \n Telefono: ".$numerocontacto;
+                            
+                            $tgLog->performApiRequest($sendMessage);
+                            $loop->run();
+                        
                         header("Location: ".URLR."/index.php?mensaje=Datos enviados&rutaImg=".$ruta);
                         exit;
                     }else{

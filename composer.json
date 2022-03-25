@@ -1,5 +1,6 @@
 {
     "require": {
-        "verot/class.upload.php": "*"
+        "verot/class.upload.php": "*",
+        "unreal4u/telegram-api": "^3.6"
     }
  }
