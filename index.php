@@ -3,7 +3,7 @@
 ?>
 
 <section class="banner">
-    <img src="./img/banner.jpg" class="img-fluid banner" alt="">
+    <img src="./img/banner2.jpg" class="img-fluid banner" alt="">
 </section>
 <section class="container">
     <div class="contenedor-registro">

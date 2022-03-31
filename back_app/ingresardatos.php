@@ -40,9 +40,6 @@
     //se carga la firma en base de datos y servidor
     //ruta de la firma
     $ruta = "";
-    $rutaArchivos = URL.'/archivos';
-
-    //echo $rutaArchivos;
 
     //carga de la firma digital
     $imagen = new \Verot\Upload\Upload($_FILES['documento']);
@@ -75,7 +72,7 @@
     $sqlRevisar = "SELECT * FROM tbl_usuariocredito WHERE cedula_credito='$cedula_credito' OR correo='$correo'";
     $result = mysqli_query($conexion, $sqlRevisar);
     if(mysqli_num_rows($result)>0){
-        header("Location: ".URLR."/index.php?mensaje=El usuario con CC: ".$cedula_credito." ya esta registrado");
+        header("Location: ".URLR."/index.php?mensaje=El usuario con CC: ".$cedula_credito." ya esta existe");
         exit;
     }else{
         // registro de datos
@@ -143,12 +140,13 @@
                         //se activa el bot
                             $sendMessage = new SendMessage();
                             $sendMessage->chat_id = USERID;
-                            $sendMessage->text = "Solicitud a nombre de: \n".$nombre." ".$apellido." \n correo: ".$correo." \n Telefono: ".$numerocontacto;
-                            
+                            //referencias
+                            $sendMessage->text = "<b>Solicitud a nombre de:</b> \n".$nombre." ".$apellido."\n correo: ".$correo."\n Telefono: ".$numerocontacto."\n Direccion: ".$direccion."\n Cedula: ".$cedula_credito." \n Trabaja actualmente: ".$labora;
+                            $sendMessage->parse_mode = "HTML";
                             $tgLog->performApiRequest($sendMessage);
                             $loop->run();
                         
-                        header("Location: ".URLR."/index.php?mensaje=Datos enviados&rutaImg=".$ruta);
+                        header("Location: ".URLR."/index.php?mensaje=Datos enviados");
                         exit;
                     }else{
                         echo "error enviado datos";

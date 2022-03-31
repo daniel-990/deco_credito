@@ -25,9 +25,26 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#">Volver a la tienda</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ingreso</a>
-        </li>
+        <?php 
+            session_start(); //se inicia la variable de sesion
+            //datos de inicio de sesion
+            if(isset($_SESSION['user_id'])){
+        ?>
+            <!-- <li class="nav-item">
+              <a class="nav-link bg-warning text-white" href="./vista-login.php"><i class="bi bi-door-open"></i> Ingreso</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link btn-cerrar" href="./back_app/login-cerrar.php"><i class="bi bi-box-arrow-left"></i> Cerrar Cuenta</a>
+            </li>
+        <?php
+            } else {
+        ?>
+            
+        <?php 
+            }
+            error_reporting(E_ALL ^ E_NOTICE);
+        
+        ?>
       </ul>
     </div>
   </div>

@@ -1,15 +1,37 @@
 <?php
 include "./partials/header.php";
 require "./constantes/conectar.php";
+session_start(); //se inicia la variable de sesion
 ?>
 
 <section class="banner">
-    <img src="./img/banner2.jpg" class="img-fluid banner" alt="">
+    <img src="./img/vista.jpg" class="img-fluid banner" alt="">
 </section>
 
 <section class="contenedor-vista-registros">
     <div id="vista" class="container table-responsive">
+        <?php 
+            //datos de inicio de sesion
+            if(isset($_SESSION['user_id'])){
+                //header('Location: '.URLR.'/vista-registros.php?user_'.$_SESSION['user_id']);
+            } else {
+                header('Location: '.URLR.'/vista-login.php');
+            }
+            error_reporting(E_ALL ^ E_NOTICE);
 
+            //datos inicio de sesion
+            if(!empty($_GET)){
+                $respuesta = $_GET['mensaje'];
+                $correo = $_GET['usermail'];
+                if($respuesta == ""){
+                    echo $respuesta;
+                    echo "<br>";
+                    echo $correo;
+                }else{
+                    echo '<h4 class="alerta"><i class="fas fa-exclamation-circle color-rojo"></i> '.$respuesta.'</h4>';
+                }
+            }
+        ?>
         <!-- buscador -->
         <form id="formulario-busqueda" action="<?php echo URLR; ?>/back_app/buscar.php" method="POST">
             <h2 class="text-left">Usuarios Registrados</h2>

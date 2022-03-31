@@ -83,12 +83,12 @@ $(document).ready(function () {
                 console.log("Este navegador no es compatible con las notificaciones de escritorio");
             }else if (Notification.permission === "granted"){
                 // Si es correcto, lanzamos una notificación
-                var notification = new Notification("Se realizo la busqueda");
+                var notification = new Notification("");
                 
 
             }else if (Notification.permission !== "denied" || Notification.permission === "default"){ 
                 Notification.requestPermission(function (permission){
-                // Si el usuario nos lo concede, creamos la notificación
+                // Si el usuario acepta, creamos la notificación
                 if (permission === "granted"){
                     var notification = new Notification("");
                 }

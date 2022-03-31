@@ -58,6 +58,29 @@ canvas {
     padding: 5px;
     border-radius: 5px;
 }
+.contenedor-login-registros{
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+}
+.color-rojo{
+    color:white;
+    font-weight: 700;
+    background-color: red;
+    margin-bottom: 10px;
+}
+.alert{
+    color:#208c87;
+}
+.btn-cerrar{
+    background-color: #178985;
+    color: white !important;
+    border: none;
+    border-radius: 5px;
+}
+/* .btn-cerrar:hover{
+    -webkit-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.19); 
+    box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.19);
+} */
 #vista{
     padding-top: 40px;
     padding-bottom: 40px;
