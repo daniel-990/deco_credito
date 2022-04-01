@@ -22,11 +22,8 @@ session_start(); //se inicia la variable de sesion
             //datos inicio de sesion
             if(!empty($_GET)){
                 $respuesta = $_GET['mensaje'];
-                $correo = $_GET['usermail'];
                 if($respuesta == ""){
                     echo $respuesta;
-                    echo "<br>";
-                    echo $correo;
                 }else{
                     echo '<h4 class="alerta"><i class="fas fa-exclamation-circle color-rojo"></i> '.$respuesta.'</h4>';
                 }
