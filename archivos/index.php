@@ -1,6 +1,6 @@
 <?php 
-
-    header("Location: https://decohouse.com.co/decohouse-tienda/decocredito/index.php");
+    require "../constantes/conectar.php";
+    header("Location: ".URLR);
     exit;
 
 ?>
