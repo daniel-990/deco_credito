@@ -1,9 +1,0 @@
-
-correo: danielarango990@gmail.com
-pass 1: adminDecoCredito2022
-pass hash1: $2y$10$GDCEmQfk5yHfP87K5SxmUeNAyCAaFFvNc224VNYPKqZmETs6RF6BC
-
-
-correo: webmaster@grupomaruplas.com
-pass 1: adminDeco
-pass hash1: $2y$10$2l1lWdUZ6aTWdYmzf.7z1e0FHSvg4RcPgUrQq/thKyDS7w3UMpYPq
