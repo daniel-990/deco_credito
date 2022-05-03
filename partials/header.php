@@ -14,7 +14,7 @@
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="https://decohouse.com.co/">
         <img src="./img/logo2.png" class="img-fluid logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,21 +23,21 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Volver a la tienda</a>
+          <a class="nav-link btn btn-dark" aria-current="page" href="https://decohouse.com.co/">Volver a la tienda</a>
         </li>
         <?php 
-            // session_start(); //se inicia la variable de sesion
-            // //datos de inicio de sesion
-            // if(isset($_SESSION['user_id'])){
+            session_start(); //se inicia la variable de sesion
+            //datos de inicio de sesion
+            if(isset($_SESSION['user_id'])){
         ?>
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link btn-cerrar" href="./back_app/login-cerrar.php"><i class="bi bi-box-arrow-left"></i> Cerrar Cuenta</a>
-            </li> -->
+            </li>
         <?php
-            // } else {
+            } else {
                
-            // }
-            // error_reporting(E_ALL ^ E_NOTICE);
+            }
+            error_reporting(E_ALL ^ E_NOTICE);
         ?>
       </ul>
     </div>
