@@ -7,7 +7,7 @@
     //local
     //define('URLR', 'http://localhost:8080/deco_credito');
     //heroku
-    define('URLR','https://decocredito.herokuapp.com/');
+    define('URLR','https://decocredito.herokuapp.com');
 
     /** 
      * datos de coneccion base de datos
