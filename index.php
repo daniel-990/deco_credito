@@ -27,7 +27,7 @@
                 }
             }
         ?>
-        <form name="f1" id="f1" action="./back_app/ingresardatos.php" method="POST" enctype="multipart/form-data">
+        <form name="f1" id="f1" action="back_app/ingresardatos.php" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3">
