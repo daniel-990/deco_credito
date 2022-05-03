@@ -11,6 +11,12 @@
 .caja-texto{
     /* margin-top: 1.5rem; */
 }
+.btn-menu{
+    color: white !important;
+    background-color: #b4ca32;
+    position: relative;
+    top: 0.4rem;
+}
 canvas {
     position: relative;
     left: 0;

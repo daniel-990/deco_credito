@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link btn btn-dark" aria-current="page" href="https://decohouse.com.co/">Volver a la tienda</a>
+          <a class="nav-link btn btn-menu" aria-current="page" href="https://decohouse.com.co/">Volver a la tienda</a>
         </li>
         <?php 
             session_start(); //se inicia la variable de sesion
