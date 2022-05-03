@@ -1,10 +1,10 @@
 <?php 
 
         //base de datos local
-        define('SERVER','localhost');
-        define('USER','root');
-        define('PASS','root');
-        define('DB','db_decocredito');
+        define('SERVER','beukmwk8bhjymx9xyynh-mysql.services.clever-cloud.com');
+        define('USER','uhr46lhlxvzli1f8');
+        define('PASS','7uVGBmseYGcem8GvQL6x');
+        define('DB','beukmwk8bhjymx9xyynh');
 
         /**
          * API:
