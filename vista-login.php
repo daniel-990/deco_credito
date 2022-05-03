@@ -1,7 +1,6 @@
 <?php
     include "./partials/header.php";
     require "./constantes/conectar.php";
-    session_start(); //se inicia la variable de sesion
 ?>
 
 <section class="banner">
@@ -14,13 +13,15 @@
             <div class="col-md-4">
                 <?php 
                     //datos de inicio de sesion
+                    session_start(); //se inicia la variable de sesion
                     if(isset($_SESSION['user_id'])){
                         header('Location: '.URLR.'/vista-registros.php');
-                        //echo "Identificador del usuario: ". $_SESSION['user_id'];
+                        echo "usuario logueado: ".$_SESSION['user_id'];
                     } else {
                         echo "<small class='text-left color-rojo'>Por favor inicie sesion para ver los registros completos</small>";
                     }
                     error_reporting(E_ALL ^ E_NOTICE);
+                    
                     //datos inicio de sesion
                     if(!empty($_GET)){
                         $respuesta = $_GET['mensaje'];

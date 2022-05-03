@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -26,18 +26,18 @@
           <a class="nav-link" aria-current="page" href="#">Volver a la tienda</a>
         </li>
         <?php 
-            session_start(); //se inicia la variable de sesion
-            //datos de inicio de sesion
-            if(isset($_SESSION['user_id'])){
+            // session_start(); //se inicia la variable de sesion
+            // //datos de inicio de sesion
+            // if(isset($_SESSION['user_id'])){
         ?>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link btn-cerrar" href="./back_app/login-cerrar.php"><i class="bi bi-box-arrow-left"></i> Cerrar Cuenta</a>
-            </li>
+            </li> -->
         <?php
-            } else {
+            // } else {
                
-            }
-            error_reporting(E_ALL ^ E_NOTICE);
+            // }
+            // error_reporting(E_ALL ^ E_NOTICE);
         ?>
       </ul>
     </div>

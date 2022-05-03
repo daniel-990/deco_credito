@@ -6,6 +6,7 @@
     //define('URLR', 'https://decohouse.com.co/deco_credito');
     //local
     //define('URLR', 'http://localhost:8080/deco_credito');
+    
     //heroku
     define('URLR','https://decocredito.herokuapp.com/');
 
