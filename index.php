@@ -12,16 +12,31 @@
             <br>
             <span class="badge bg-secondary alerta-titulo">Sistema de credito</span>
             <hr>
+            <div class="container alerta-mensaje" style="color: #93a140;">
+                    <h3>con esta solicitud, ÚNICAMENTE REALIZAS EL ENVIO DE TUS DATOS PERSONALES PARA QUE NUESTRA ASESORA DE CREDITO SE COMUNIQUE CONTIGO</h3>
+                <br>
+                    <p>* con esto no estas excento de acercarte a nuestras tiendas para redimir tu cupo aprobado y recibir información del mismo *</p>
+                <br>
+            </div>
         </h2> 
         <?php 
             if(!empty($_GET)){
                 $mensaje = $_GET['mensaje'];
+                $mensaje2 = $_GET['mensajeDeco1'];
                 //$rutaFirma = $_GET['rutaImg'];
                 if($mensaje == ""){
                     echo "";
                 }else{
                     echo '<div class="contenedor-mensajes">';
                     echo '<h4 class="mensaje-alerta badge_ rounded-pill_ bg-success">'.$mensaje.' <i class="bi bi-check-all color_alert"></i></h4>';
+                    echo '</div>';
+                    echo '<br>';
+                }
+                if($mensaje2 == ""){
+                    echo "";
+                }else{
+                    echo '<div class="contenedor-mensajes">';
+                    echo '<h4 class="mensaje-alerta badge_ rounded-pill_ bg-success" style="background-color: red !important;">'.$mensaje2.' <i class="bi bi-check-all color_alert"></i></h4>';
                     echo '</div>';
                     echo '<br>';
                 }
