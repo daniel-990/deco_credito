@@ -1,10 +1,16 @@
 <?php 
 
-        //base de datos local
+        //base de datos local remota 1
         define('SERVER','beukmwk8bhjymx9xyynh-mysql.services.clever-cloud.com');
         define('USER','uhr46lhlxvzli1f8');
         define('PASS','7uVGBmseYGcem8GvQL6x');
         define('DB','beukmwk8bhjymx9xyynh');
+
+        //base de datos local remota 2
+        // define('SERVER','bjv5du2ytluyo6emozwn-mysql.services.clever-cloud.com');
+        // define('USER','ufh12kh9mriwsvff');
+        // define('PASS','vxmICHf2zUW2h9Ewne8a');
+        // define('DB','bjv5du2ytluyo6emozwn');
 
         /**
          * API:
@@ -17,7 +23,7 @@
         define('USERID',177279577);
 
         //base de datos remota
-        // define('SERVER','localhost');
+        // define('SERVER','https://decohouse.com.co');
         // define('USER','decohous_tienda2');
         // define('PASS','s=3UMb~I)s&(');
         // define('DB','decohous_db_decocredito');

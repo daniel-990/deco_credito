@@ -77,9 +77,13 @@
     }else{
         // registro de datos
         if(isset($_POST)){
-            if($nombre == "" && $apellido == "" && $cedula_credito == "" && $direccion == "" && $correo == "" && $numerocontacto == "" && $labora == "seleccione" && $quetrabaja == ""){
+            if($nombre == "" && $apellido == "" && $cedula_credito == "" && $direccion == "" && $correo == "" && $numerocontacto == ""){
                 header("Location: ".URLR."/index.php?mensajeDeco1=Todos los campos son obligatorios");
                 exit;
+                if($labora == "" && $quetrabaja == ""){
+                    header("Location: ".URLR."/index.php?mensajeDeco1=Todos los campos son obligatorios");
+                    exit;
+                }
             }else{
                 if($conexion){
                     $sql = "INSERT INTO tbl_usuariocredito (

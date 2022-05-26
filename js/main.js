@@ -6,6 +6,26 @@ $(document).ready(function () {
   const buscador = $("#buscador");
   const buscar = $("#formulario-busqueda");
 
+  const queTrabaja = $("#cajatexto").val();
+
+  var input = document.getElementById('numerocontacto');
+  var boton = $("#boton-enviar");
+  
+  var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+  myModal.show();
+  $("#cerrar").on("click", function(){
+    myModal.hide();
+  });
+
+  boton.on("click", function(){
+    if (input.value.length < 10) {
+      input.value = input.value.slice(0,12); 
+      alert("Numero de celular incompleto");
+    }else{
+      console.log("numero mayor");
+    }
+  });
+
   $(document).on("change", "#trabaja", function () {
     const trabaja = $("#trabaja").val();
     if (trabaja == "si") {
@@ -60,7 +80,7 @@ $(document).ready(function () {
     }
   });
 
-  buscar.submit(function (e) {
+  buscar.submit(function (e){
     e.preventDefault();
 
     var formularioBusqueda = $(this);
@@ -71,32 +91,10 @@ $(document).ready(function () {
       url: url,
       data: formularioBusqueda.serialize(),
       success: function (data) {
-        
         $("#resultados").html("");
         $("#resultados").html(data);
         selectBuscar.val("Seleccionar");
         buscador.val("");
-
-            //notificaciones
-            // Comprobamos si el navegador soporta las notificaciones
-            if (!("Notification" in window)){
-                console.log("Este navegador no es compatible con las notificaciones de escritorio");
-            }else if (Notification.permission === "granted"){
-                // Si es correcto, lanzamos una notificación
-                var notification = new Notification("");
-                
-
-            }else if (Notification.permission !== "denied" || Notification.permission === "default"){ 
-                Notification.requestPermission(function (permission){
-                // Si el usuario acepta, creamos la notificación
-                if (permission === "granted"){
-                    var notification = new Notification("");
-                }
-            });
-        }
-        //notificaciones
-
-
       },
       error: function (error) {
         alert(error);

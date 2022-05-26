@@ -5,7 +5,7 @@
     //remota
     //define('URLR', 'https://decohouse.com.co/deco_credito');
     //local
-    //define('URLR', 'http://localhost/deco_credito');
+    //define('URLR', 'http://localhost/decocredito');
     //heroku
     define('URLR','https://decocredito.herokuapp.com');
 
